@@ -1,5 +1,5 @@
 #docker私有仓库
-##镜像启动docker registry
+##镜像启动docker registry123
 ><code>docker run -d -p 5000:5000 --restart=always --name registry -v /mnt/registry:/var/lib/registry --privileged=true registry:2</code>
 >
 >需使用私有仓库的主机打开/etc/sysconfig/docker，OPTIONS里添加 --insecure-registry=10.109.252.72:5000
