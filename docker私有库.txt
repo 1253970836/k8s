@@ -1,0 +1,9 @@
+1、镜像启动docker registry
+  docker run -d -p 5000:5000 --restart=always --name registry -v /mnt/registry:/var/lib/registry --privileged=true registry:2
+2、需使用私有仓库的主机打开/etc/sysconfig/docker，OPTIONS里添加 --insecure-registry=10.109.252.72:5000
+3、上传镜像到私有仓库
+    例：docker tag my_image 10.109.252.72:5000/my_image2:v1
+        docker push 10.109.252.72:5000/my_image2:v1
+4、查看私有仓库镜像 
+    curl 10.109.252.72:5000/v2/_catalog
+    查看挂载文件：ll /mnt/registry/docker/registry/v2/repositories/
